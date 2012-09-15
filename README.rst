@@ -27,7 +27,7 @@ initialize your app::
 The ``@failsafe`` decorator catches any errors calling ``create_app()`` and
 returns a fallback app that will instead display the Flask error debugger.
 
-If you use `Flask-Script <http://flask-script.readthedocs.org>`, you can pass
+If you use `Flask-Script <http://flask-script.readthedocs.org>`_, you can pass
 the same ``@failsafe``-decorated factory function to the ``Manager()`` class::
 
   from flask.ext.script import Manager, Server
