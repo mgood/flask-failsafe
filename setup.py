@@ -14,7 +14,7 @@ except:
 
 setup(
   name='Flask-Failsafe',
-  version='0.1',
+  version='0.2',
   url='http://github.com/mgood/flask-failsafe',
   license='BSD',
   author='Matt Good',
