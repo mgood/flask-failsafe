@@ -3,6 +3,9 @@ Flask-Failsafe
 
 A failsafe for the Flask reloader.
 
+.. image:: https://travis-ci.org/mgood/flask-failsafe.png
+   :target: https://travis-ci.org/mgood/flask-failsafe
+
 The Flask reloader works great until you make a syntax error and it fails
 importing your app. This extension helps keep you working smoothly by catching
 errors during the initialization of your app, and provides a failsafe fallback
