@@ -5,6 +5,9 @@ import traceback
 import flask
 
 
+PY2 = sys.version_info[0] == 2
+
+
 def failsafe(func):
   """
   Wraps an app factory to provide a fallback in case of import errors.
@@ -43,11 +46,20 @@ def failsafe(func):
     @app.route('/')
     @app.route('/<path:path>')
     def index(path='/'):
-      raise exc_type, exc_val, exc_tb
+      reraise(exc_type, exc_val, exc_tb)
 
     return app
 
   return wrapper
+
+
+if PY2:
+  exec('def reraise(tp, value, tb=None):\n raise tp, value, tb')
+else:
+  def reraise(tp, value, tb=None):
+    if value.__traceback__ is not tb:
+      raise value.with_traceback(tb)
+    raise value
 
 
 class _FailSafeFlask(flask.Flask):
