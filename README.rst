@@ -18,13 +18,13 @@ initialize your app::
 
   @failsafe
   def create_app():
-    # note that the import is *inside* this function so that we can catch
-    # errors that happen at import time
-    from myapp import app
-    return app
+      # note that the import is *inside* this function so that we can catch
+      # errors that happen at import time
+      from myapp import app
+      return app
 
   if __name__ == "__main__":
-    create_app().run()
+      create_app().run()
 
 
 The ``@failsafe`` decorator catches any errors calling ``create_app()`` and
@@ -38,11 +38,11 @@ the same ``@failsafe``-decorated factory function to the ``Manager()`` class::
 
   @failsafe
   def create_app():
-    from myapp import app
-    return app
+      from myapp import app
+      return app
 
   manager = Manager(create_app)
   manager.add_command("runserver", Server())
 
   if __name__ == "__main__":
-    manager.run()
+      manager.run()
